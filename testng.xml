@@ -3,7 +3,27 @@
 <suite name="Suite">
   <test name="Test">
     <classes>
-      <class name="base_class.Test_Hierarchy"/>
+     
+      <class name="com.learnautomation.testcases.ver_title" > 
+      <methods>
+        <include name="verify_title" />
+       </methods>  
+       </class> 
+       <class name="com.learnautomation.testcases.verify_Registration" >
+       <methods>
+        <include name="Registration" />
+        <include name="Login" />
+        
+       </methods> 
+       </class>
+        
+       
+    
+       
+    
+     
+      
+  
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -5,17 +5,18 @@ import base_class.Dynamic_browser;
 
 import com.learnautomation.pages.*;
 
-public class verify_title {
-	WebDriver driver;
-	public verify_title(WebDriver driver)
+public class homepage_title {
+	private WebDriver driver;
+	
+	public homepage_title(WebDriver driver)
 	{
 		this.driver=driver;
 	}
 	
 	
 	public String get_title(){
-	
-		return driver.getTitle();
+	   String title=driver.getTitle();
+		return title;
 	
 	}
 

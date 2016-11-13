@@ -9,7 +9,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -19,8 +21,15 @@ import org.testng.annotations.Test;
 
 
 public class Dynamic_browser {
-WebDriver driver;
-@BeforeTest
+private WebDriver driver;
+	
+public WebDriver getDriver()
+{
+	return driver;
+}
+
+
+@BeforeClass
 	public void open_browser()
 	  {
 		Get_property all_info=new Get_property();
@@ -54,7 +63,7 @@ WebDriver driver;
       driver.get(url);
 	  }
 
-
+/*
 @Test(priority=0)
 private void ver_title(){
 	verify_title title=new verify_title(driver);
@@ -98,6 +107,13 @@ public void Index_Assignment2() {
 		Assert.fail("Count_no_box_widget are not matching:Found- "+count+", Expected- 7");
 	}
 	
+}
+*/
+
+@AfterClass
+public void close_browser()
+{
+	driver.quit();
 }
 
 }

@@ -7,12 +7,13 @@ import org.testng.SkipException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class Registration {
-
+	String result = "true";
 	WebDriver driver;
 	public Registration(WebDriver driver)
 	{
@@ -29,21 +30,25 @@ public class Registration {
 	protected String username=all_information[7];
 	protected String password=all_information[8];
 	
-public void Register_user()
-	{
+public String Register_user()
+{
 	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	driver.findElement(By.xpath(".//*[@id='wrapper']/div[2]/div[2]/div[1]/ul/li[1]/a/figure")).click();
-	System.out.println("Hi" +name);
+	//System.out.println("Hi" +name);
 	String title=driver.getTitle();
-	System.out.println(title);
+	//System.out.println(title);
 	LinkedList<String> tabs2 = new LinkedList<String>(driver.getWindowHandles());
 	try
 		{
 		////Switch to Index Page
 		String title2=driver.switchTo().window(tabs2.get(1)).getTitle();
-		System.out.println(title2);
+		//System.out.println(title2);
 		//Thread.sleep(5000);
-		}catch(Exception e){Assert.fail("Unable to open the Index Page");}
+		}catch(Exception e)
+	{
+			String result="false";
+			
+	}
 		
 	//Switch to registration Page
 	try{
@@ -77,10 +82,14 @@ try
 {
 driver.findElement(By.cssSelector("div[id=load_box]>form[id=load_form]>div[class='bottom row']>div[align=center]>input[class=button]")).click();
 Thread.sleep(5000);
-}catch(Exception e){System.out.println("not found");}
+}catch(Exception e){System.out.println("not found");result="false";}
+return result;
 }
 
-public void Login()
+
+/* Login to the Application */
+
+public String Login()
 {
 
 String pageText = driver.findElement(By.xpath(".//*[@id='alert']")).getText();
@@ -89,16 +98,23 @@ driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 if(pageText.equals("Username or Password already exists."))
 	
 {
-	
+	try
+	{
 	driver.findElement(By.partialLinkText("Signin")).click();
 	driver.findElement(By.cssSelector("div[id=login]>#load_form>fieldset>input[name=username]")).sendKeys(username);
 	driver.findElement(By.cssSelector("div[id=login]>#load_form>fieldset>input[name=password]")).sendKeys(password);
 	driver.findElement(By.cssSelector("div[id=login]>form[id=load_form]>div[class='bottom row']>div[align=center]>input[class=button]")).click();
-}
-else
-	Assert.fail("you wandered onto the wrong path");
-}
+	}
+	catch(Exception e){System.out.println("not found");
+	String result="false";}
+	}
+	else
+	{
+	System.out.println("you wandered onto the wrong path"); String result="false";
+	}
 
+return result;
+}
 }
 
 

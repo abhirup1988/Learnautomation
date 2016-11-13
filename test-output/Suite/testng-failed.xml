@@ -3,12 +3,18 @@
 <suite name="Failed suite [Suite]">
   <test name="Test(failed)">
     <classes>
-      <class name="base_class.Test_Hierarchy">
+      <class name="com.learnautomation.testcases.verify_Registration">
         <methods>
-          <include name="print"/>
-          <include name="Get_title"/>
+          <include name="open_browser"/>
+          <include name="setup"/>
         </methods>
-      </class> <!-- base_class.Test_Hierarchy -->
+      </class> <!-- com.learnautomation.testcases.verify_Registration -->
+      <class name="com.learnautomation.testcases.ver_title">
+        <methods>
+          <include name="setup"/>
+          <include name="verify_title"/>
+        </methods>
+      </class> <!-- com.learnautomation.testcases.ver_title -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
