@@ -2,9 +2,9 @@ package com.learnautomation.testcases;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.Reporter;
+
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
+
 import org.testng.annotations.Test;
 
 import com.learnautomation.pages.*;

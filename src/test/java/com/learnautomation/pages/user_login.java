@@ -2,7 +2,7 @@ package com.learnautomation.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.Test;
+
 
 import Get_properties.Get_property;
 

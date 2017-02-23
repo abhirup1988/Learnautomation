@@ -1,10 +1,9 @@
 package com.learnautomation.pages;
 import Get_properties.Get_property;
 
-import org.testng.Assert;
-import org.testng.SkipException;
 
-import java.util.LinkedList;
+
+
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -35,13 +34,13 @@ public void navigate_to_Register()
 	
 	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	driver.findElement(By.xpath(".//*[@id='wrapper']/div[2]/div[2]/div[1]/ul/li[1]/a/figure")).click();
-	LinkedList<String> tabs2 = new LinkedList<String>(driver.getWindowHandles());
+	
 	try
 		{
-		String title2=driver.switchTo().window(tabs2.get(1)).getTitle();
+		
 		}catch(Exception e)
 	{
-			String result="false";
+			
 			
 	}
 		
