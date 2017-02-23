@@ -30,20 +30,15 @@ public class Registration {
 	protected String username=all_information[7];
 	protected String password=all_information[8];
 	
-public String Register_user()
-{
+public void navigate_to_Register()
+{ 
+	
 	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	driver.findElement(By.xpath(".//*[@id='wrapper']/div[2]/div[2]/div[1]/ul/li[1]/a/figure")).click();
-	//System.out.println("Hi" +name);
-	String title=driver.getTitle();
-	//System.out.println(title);
 	LinkedList<String> tabs2 = new LinkedList<String>(driver.getWindowHandles());
 	try
 		{
-		////Switch to Index Page
 		String title2=driver.switchTo().window(tabs2.get(1)).getTitle();
-		//System.out.println(title2);
-		//Thread.sleep(5000);
 		}catch(Exception e)
 	{
 			String result="false";
@@ -56,8 +51,14 @@ public String Register_user()
 	    driver.switchTo().activeElement();
 	    Thread.sleep(5000);
 	} 
-	catch(Exception e){throw new SkipException("Skipping this exception as the user is already logged in");}
+	catch(Exception e){System.out.println("Skipping this exception as the user is already logged in");}
 	
+	
+}
+	
+//This method will enter Registratio details
+public String Enter_Registration_details()
+{
 		driver.findElement(By.cssSelector("div[id=load_box]>form>fieldset>input[name=name][type=text]")).sendKeys(name);
 		driver.findElement(By.cssSelector("#load_form>fieldset>input[name=phone]")).sendKeys(phone);
 		driver.findElement(By.cssSelector("#load_form>fieldset>input[name=email]")).sendKeys(email);
@@ -97,9 +98,10 @@ System.out.print(pageText);
 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 if(pageText.equals("Username or Password already exists."))
 	
-{
+{/*
 	try
 	{
+		
 	driver.findElement(By.partialLinkText("Signin")).click();
 	driver.findElement(By.cssSelector("div[id=login]>#load_form>fieldset>input[name=username]")).sendKeys(username);
 	driver.findElement(By.cssSelector("div[id=login]>#load_form>fieldset>input[name=password]")).sendKeys(password);
@@ -112,7 +114,11 @@ if(pageText.equals("Username or Password already exists."))
 	{
 	System.out.println("you wandered onto the wrong path"); String result="false";
 	}
-
+	*/
+		user_login login=new user_login(driver);
+		login.login();
+		
+	}
 return result;
 }
 }

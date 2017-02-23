@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]">
-  <test name="Default test(failed)">
+<suite thread-count="1" name="Failed suite [Suite]">
+  <test name="Test1(failed)">
     <classes>
-      <class name="com.learnautomation.testcases.ver_title">
+      <class name="com.learnautomation.testcases.verify_Registration_page">
         <methods>
+          <include name="user_Login"/>
+          <include name="nav_to_Reg"/>
+          <include name="Index_Assignment1_count_no_of_box"/>
           <include name="open_browser"/>
-          <include name="setup"/>
-          <include name="verify_title"/>
+          <include name="Index_Assignment2"/>
         </methods>
-      </class> <!-- com.learnautomation.testcases.ver_title -->
+      </class> <!-- com.learnautomation.testcases.verify_Registration_page -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Test1(failed) -->
+</suite> <!-- Failed suite [Suite] -->
